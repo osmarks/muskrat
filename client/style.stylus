@@ -1,0 +1,52 @@
+.field-name::after
+    content ": "
+
+.extra-controls 
+    button, span
+        border-radius 0
+        border none
+        background lightgray
+        padding 0.5em
+        margin-right 0.5em
+
+    display flex
+    align-items center
+
+    margin-bottom 1em
+
+.music-player
+    width 100%
+    margin-bottom 1em
+
+.song-name
+    font-size 1.5em
+    font-style italic
+
+.spinner:before
+    animation spinner-content .8s linear infinite
+    content "⠋ "
+
+@keyframes spinner-content
+    10% { content: "⠙ "; }
+    20% { content: "⠹ "; }
+    30% { content: "⠸ "; }
+    40% { content: "⠼ "; }
+    50% { content: "⠴ "; }
+    60% { content: "⠦ "; }
+    70% { content: "⠧ "; }
+    80% { content: "⠇ "; }
+    90% { content: "⠏ "; }
+
+body
+    font-family Fira Sans, sans-serif
+
+// mobile detection is handled by JS-side code
+// the UI should be bigger and more touch-friendly accordingly
+body.mobile
+    font-size 2em
+    zoom 100%
+    padding 1em
+
+    .extra-controls
+        button, span
+            font-size 1.5em
