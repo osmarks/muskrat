@@ -7,10 +7,10 @@ To expand on this a bit: this is a simple web application which plays randomly p
 
 1. `git clone` this
 2. `npm install` - install dependencies
-3. `npm run build:client` - build the frontend - the backend doesn't require a build step
-4. `node src/index.js` (you probably want to run this automatically; make sure the working directory is right)
+3. `npm run build:client` - build the frontend
+4. `cargo build` or `cargo run` (add --release if you want)
 
-The files in your music folder are assumed to have valid metadata (in any format accepted by [music-metadata](http://npmjs.com/package/music-metadata)) and be playable directly by your browser. 
+The files in your music folder are assumed to have valid metadata (in any format accepted by [taglib](https://taglib.org/), probably) and be playable directly by your browser. 
 This does not include some sort of automatic transcoding, so don't use exotic formats.
 If metadata is missing it should *function*, but some features may be unavailable or broken.
 
