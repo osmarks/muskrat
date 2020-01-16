@@ -10,16 +10,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@nodelib/fs.walk": "^1.2.4",
-    "es6-promise-pool": "^2.5.0",
-    "express": "^4.17.1",
-    "express-promise-router": "^3.0.3",
     "mithril": "^2.0.4",
-    "music-metadata": "^6.1.2",
     "parcel": "^1.12.4",
     "stylus": "^0.54.7"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
   }
 }
