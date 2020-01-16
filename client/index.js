@@ -40,15 +40,26 @@ const getNext = () => {
         console.log(currentSong)
         if (audioElem) {
             audioElem.src = `music/${currentSong.file}`
-            audioElem.addEventListener("canplaythrough", () => audioElem.play())
+            //audioElem.addEventListener("canplaythrough", () => audioElem.play())
+            audioElem.play()
         }
     })
 }
 
-const rescan = () => {
+let reloadError = null
+
+const reload = () => {
+    reloadError = "loading"
     m.request({
         method: "POST",
-        url: "api/rescan"
+        url: "api/reload",
+        responseType: "json"
+    }).then(result => {
+        if (result.Ok) {
+            reloadError = null
+        } else {
+            reloadError = result.Err
+        }
     })
 }
 
@@ -67,8 +78,8 @@ const App = {
     view: () => m("div", [
         m(".extra-controls", [
             m("button", { onclick: getNext }, "Next"),
-            m("button", { onclick: rescan }, "Rescan"),
-            isMobile && audioElem ? m("button", { onclick: togglePaused }, audioElem.paused ? "Play" : "Pause") : null
+            m("button", { onclick: reload }, reloadError === null ? "Reload" : reloadError === "loading" ? m(Spinner) : reloadError),
+            audioElem ? m("button", { onclick: togglePaused }, audioElem.paused ? "Play" : "Pause") : null
         ]),
         m("audio.music-player", { 
             controls: true, 

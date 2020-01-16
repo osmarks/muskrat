@@ -2,3 +2,10 @@ node_modules
 .cache
 dist
 music
+
+#Added by cargo
+#
+#already existing elements are commented out
+
+/target
+**/*.rs.bk
