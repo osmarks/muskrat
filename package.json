@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "mithril": "^2.0.4",
-    "parcel": "^1.12.4",
+    "parcel": "^2.8.2",
     "stylus": "^0.54.7"
   }
 }
